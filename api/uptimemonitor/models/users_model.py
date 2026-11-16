@@ -2,6 +2,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import DateTime, String, UniqueConstraint, ForeignKey, func
 from uptimemonitor.models.base import Base
 from datetime import datetime
+from typing import List
 
 
 
@@ -16,7 +17,7 @@ class User(Base):
     role_id: Mapped[int] = mapped_column(ForeignKey("role.role_id"), nullable=False)
 
     role: Mapped["Role"] = relationship(back_populates="users")
-
+    user_session: Mapped[List["UserSession"]] = relationship(back_populates="user")
     
     __table_args__ = (
        UniqueConstraint("username", name="uq_user_username"),

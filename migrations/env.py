@@ -6,9 +6,7 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 from uptimemonitor.core.config import settings
 
-from uptimemonitor.models.base import Base
-from uptimemonitor.models.users_model import User
-from uptimemonitor.models.role import Role
+from uptimemonitor.models import Base
 
 
 from alembic import context
